@@ -1,5 +1,4 @@
 export const elevation = {
-  backgroundColor: "white",
   shadowColor: "#333",
   shadowOffset: { width: 5, height: 5 },
   elevation: 0.2,
