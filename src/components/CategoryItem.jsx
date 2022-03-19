@@ -1,14 +1,25 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { elevation } from "../components/common/style.js";
 
-const CategoryItem = ({ name, img }) => {
+const CategoryItem = ({ name, img, index, handelPress, active }) => {
   return (
-    <View style={[styles.wrapper, elevation]}>
-      <View style={styles.imageContainer}>
-        <Image source={img} style={styles.image} />
+    <TouchableOpacity onPress={handelPress}>
+      <View
+        style={[
+          styles.wrapper,
+          elevation,
+          index === 0 ? { marginLeft: 22 } : { marginLeft: 10 },
+          active === name
+            ? { backgroundColor: "rgb(241,186,87)" }
+            : { backgroundColor: "white" },
+        ]}
+      >
+        <View style={styles.imageContainer}>
+          <Image source={img} style={styles.image} />
+        </View>
+        <Text style={styles.header}>{name}</Text>
       </View>
-      <Text style={styles.header}>{name}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -20,12 +31,10 @@ const styles = StyleSheet.create({
     width: 70,
     height: 100,
     marginVertical: 15,
-    marginHorizontal: 10,
     borderRadius: 40,
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "rgb(241,186,87)",
   },
   imageContainer: {
     width: 45,
