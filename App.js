@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { View } from "react-native";
 import Header from "./src/components/Header";
 import Search from "./src/components/Search";
 import Category from "./src/components/Category";
+import axios from "axios";
+import Restaurant from "./src/components/Restaurant";
 
 export default function App() {
   const [term, setTerm] = useState("");
@@ -42,6 +44,7 @@ export default function App() {
         commonCategories={commonCategories}
         setTerm={setTerm}
       />
+      <Restaurant />
       <StatusBar style="auto" />
     </View>
   );
