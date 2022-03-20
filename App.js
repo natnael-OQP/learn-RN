@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Text, FlatList } from "react-native";
-import CategoryItem from "./src/components/CategoryItem";
+import { View } from "react-native";
 import Header from "./src/components/Header";
 import Search from "./src/components/Search";
+import Category from "./src/components/Category";
 
 export default function App() {
   const [term, setTerm] = useState("");
@@ -33,31 +33,16 @@ export default function App() {
       img: require("./src/assets/images/pasta.png"),
     },
   ];
-  console.log(term);
   return (
-    <View style={styles.container}>
+    <View>
       <Header />
       <Search setTerm={setTerm} />
-      <FlatList
-        data={commonCategories}
-        renderItem={({ item: { name, img }, index }) => (
-          <CategoryItem
-            name={name}
-            img={img}
-            index={index}
-            handelPress={() => setTerm(name)}
-            active={term}
-          />
-        )}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        keyExtractor={(category) => category.name}
+      <Category
+        term={term}
+        commonCategories={commonCategories}
+        setTerm={setTerm}
       />
       <StatusBar style="auto" />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {},
-});
