@@ -8,12 +8,14 @@ export default function Search({ setTerm }) {
   const handleEnter = () => {
     if (!input) return;
     setTerm(input);
+    setInput("");
   };
   return (
     <View style={[styles.container, styles.elevation]}>
       <FontAwesome name="search" size={25} />
       <TextInput
         placeholder="Restaurant, food"
+        value={input}
         style={styles.input}
         onChangeText={(text) => setInput(text)}
         onEndEditing={() => handleEnter()}
