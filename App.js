@@ -8,30 +8,31 @@ import axios from "axios";
 import Restaurant from "./src/components/Restaurant";
 
 export default function App() {
-  const [term, setTerm] = useState("");
+  const [term, setTerm] = useState("watch");
+  // term
   const commonCategories = [
     {
-      name: "Burger",
-      img: require("./src/assets/images/burger.png"),
-    },
-    {
-      name: "Pizza",
+      name: "watch",
       img: require("./src/assets/images/pizza.png"),
     },
     {
-      name: "Dessert",
+      name: "hats",
       img: require("./src/assets/images/cake.png"),
     },
     {
-      name: "Drinks",
+      name: "sneakers",
       img: require("./src/assets/images/smoothies.png"),
     },
     {
-      name: "Steak",
+      name: "jackets",
       img: require("./src/assets/images/steak.png"),
     },
     {
-      name: "Pasta",
+      name: "womens",
+      img: require("./src/assets/images/pasta.png"),
+    },
+    {
+      name: "mens",
       img: require("./src/assets/images/pasta.png"),
     },
   ];
@@ -44,7 +45,7 @@ export default function App() {
         commonCategories={commonCategories}
         setTerm={setTerm}
       />
-      <Restaurant />
+      <Restaurant term={term} />
       <StatusBar style="auto" />
     </View>
   );
