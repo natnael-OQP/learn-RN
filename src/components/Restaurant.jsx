@@ -1,24 +1,13 @@
 import { View, Text, StyleSheet } from "react-native";
-import React from "react";
-import yelp from "../api/yelp.js";
+import React, { useEffect } from "react";
+import useRestaurant from "../hook/useRestaurant";
 
-export default function Restaurant() {
-  const search = async () => {
-    const result = await yelp.get("/search", {
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "https://localhost:19006",
-      },
-      params: {
-        limit: 10,
-        term: "Dessert",
-        location: "Toronto",
-      },
-    });
-    console.log(result);
-  };
-  search();
+export default function Restaurant({ term }) {
+  const [{ data, error, loading }, useRestaurant] = useRestaurant();
+  useEffect(() => {
+    useRestaurant(term);
+  }, [term]);
+  console.log(data, error, loading);
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Top Restaurant</Text>
