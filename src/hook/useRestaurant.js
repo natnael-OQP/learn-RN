@@ -8,7 +8,7 @@ const UseRestaurant = () => {
     error: false,
   });
 
-  const useRestaurant = async (term = "recommended") => {
+  const useRestaurant = async (term = "watch") => {
     setResult({ data: null, loading: true, error: false });
     try {
       const { data } = await instance.get("/?category=" + term);
