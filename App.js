@@ -4,7 +4,6 @@ import { View } from "react-native";
 import Header from "./src/components/Header";
 import Search from "./src/components/Search";
 import Category from "./src/components/Category";
-import axios from "axios";
 import Restaurant from "./src/components/Restaurant";
 
 export default function App() {
