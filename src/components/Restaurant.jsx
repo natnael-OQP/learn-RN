@@ -4,7 +4,6 @@ import {
   StyleSheet,
   ActivityIndicator,
   FlatList,
-  TouchableOpacity,
 } from "react-native";
 import React, { useEffect } from "react";
 import UseRestaurant from "../hook/useRestaurant";
@@ -26,11 +25,7 @@ export default function Restaurant({ term }) {
       <FlatList
         data={data?.[0].items}
         keyExtractor={(item) => item.id}
-        renderItem={({ item, index }) => (
-          <TouchableOpacity>
-            <RestaurantItem item={item} />
-          </TouchableOpacity>
-        )}
+        renderItem={({ item, index }) => <RestaurantItem item={item} />}
       />
     </View>
   );
